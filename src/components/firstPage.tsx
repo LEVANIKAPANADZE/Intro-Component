@@ -144,17 +144,17 @@ export default function FirstPage({
                         placeholder={value.placeholder}
                         type="text"
                         name={value.inputName}
-                        value={values[value.inputName]}
+                        value={values[value.inputName as keyof FormValues]}
                         onChange={(event) => handleChange(event)}
-                        error={errors[value.inputName]}
+                        error={errors[value.inputName as keyof FormValues]}
                       />
                       <ErrorIcon
                         src={erimg}
-                        error={errors[value.inputName]}
+                        error={errors[value.inputName as keyof FormValues]}
                         alt="error icon"
                       />
                     </div>
-                    {errors[value.inputName] ? (
+                    {errors[value.inputName as keyof FormValues] ? (
                       <ErrorMessage>{value.message}</ErrorMessage>
                     ) : null}
                   </div>
